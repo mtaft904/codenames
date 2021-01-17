@@ -1,6 +1,8 @@
 :root{
-  --cols: 6;
-  --rows: 6;
+  --cols: 5;
+  --rows: 5;
+  --backColor: blue;
+
 }
 
 header{
@@ -10,8 +12,8 @@ header{
 }
 #grid {
   display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: : repeat(5, 100px);
+  grid-template-columns: repeat(var(--cols), 20%);
+  grid-template-rows: : repeat(var(--rows), 100px);
   margin: 50px auto;
   width: 75%;
   height: 100%;
@@ -42,6 +44,21 @@ main{
   margin: auto;
 }
 
+
+.clicked{
+  background-color: var(--backColor);
+}
+
+.red{
+  --textColor: maroon;
+  --backColor: maroon;
+}
+
+.blue{
+  --textColor: blue;
+  --backColor: blue;
+}
+
 .spymaster {
-  color: black;
+  color: var(--textColor);
 }
