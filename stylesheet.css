@@ -1,37 +1,41 @@
 :root{
   --cols: 5;
   --rows: 5;
-  --backColor: blue;
+  --backColor: beige;
+  --textColor: white;
 
 }
 
+body{
+  background-color: white;
+}
 header{
   height: 75px;
   text-align: center;
   font-size: 30pt;
+  line-height: 75px;
 }
 #grid {
   display: grid;
   grid-template-columns: repeat(var(--cols), 20%);
   grid-template-rows: : repeat(var(--rows), 100px);
   margin: 50px auto;
-  width: 75%;
+  width: 750px;
   height: 100%;
   row-gap: 5px;
   column-gap: 5px;
 }
 
 main{
-  background-color: #333;
   display: block;
-  padding: 50px;
+  padding-bottom: 50px;
 }
 
 .item{
   width: 100%;
   height: 100px;
-  color: white;
-  background-color: red;
+  color: #222;
+  background-color: beige;
   text-align: center;
   line-height: 100px;
 }
@@ -45,9 +49,6 @@ main{
 }
 
 
-.clicked{
-  background-color: var(--backColor);
-}
 
 .red{
   --textColor: maroon;
@@ -59,6 +60,21 @@ main{
   --backColor: blue;
 }
 
+.neutral{
+  --backColor: grey;
+  --textColor: black;
+}
+
+.bomb{
+  --backColor: #333;
+  --textColor: orange;
+}
+
 .spymaster {
   color: var(--textColor);
+}
+
+.clicked{
+  background-color: var(--backColor);
+  color: white;
 }
