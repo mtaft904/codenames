@@ -1,7 +1,7 @@
 const grid = document.getElementById("grid");
 
 
-const teamsArray = assignTeams();
+let teamsArray = assignTeams();
 console.log(teamsArray);
 
 function makeRows(rows, cols) {
@@ -46,16 +46,51 @@ function assignTeams(){
   return newArray;
 }
 
+
 const spymaster = document.getElementById("spymaster");
+const spy = document.getElementById("spy");
+
 spymaster.addEventListener('click', ()=>{
   items.forEach((item) => {
       item.classList.add("spymaster");
+      spymaster.style.backgroundColor = "grey";
+      spy.style.backgroundColor = "orange";
   });
 });
 
-const spy = document.getElementById("spy");
 spy.addEventListener('click', ()=>{
   items.forEach((item) => {
       item.classList.remove("spymaster");
+      spy.style.backgroundColor = "grey";
+      spymaster.style.backgroundColor = "orange";
   });
 });
+
+const newGame = document.getElementById("new-game");
+newGame.addEventListener('click', ()=>{
+  teamsArray = assignTeams();
+  console.log(teamsArray);
+  items.forEach((item, i) => {
+    let randomWord = words[Math.floor(Math.random() * words.length)];
+    item.textContent = randomWord;
+    item.classList.remove("clicked");
+
+
+    if (item.classList.contains("red")){
+      item.classList.remove("red");
+    }
+    if (item.classList.contains("blue")){
+      item.classList.remove("blue");
+    }
+    if (item.classList.contains("bomb")){
+      item.classList.remove("bomb");
+    }
+    if (item.classList.contains("neutral")){
+      item.classList.remove("neutral");
+    }
+    item.classList.add(teamsArray[i]);
+
+
+  });
+
+})
