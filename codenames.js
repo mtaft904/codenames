@@ -8,9 +8,9 @@ function makeRows(rows, cols) {
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
     grid.appendChild(cell).className = "item";
-    cell.textContent = "Item " + c;
+    let randomWord = words[Math.floor(Math.random() * words.length)];
+    cell.textContent = randomWord;
     cell.classList.add(teamsArray[c]);
-    //console.log(cell.classList);
     cell.addEventListener('click', ()=> {
       cell.classList.add("clicked");
     });
