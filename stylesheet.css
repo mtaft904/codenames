@@ -1,24 +1,38 @@
 :root{
-  --cols: 5;
-  --rows: 5;
-  --backColor: beige;
+  --cols: 6;
+  --rows: 6;
+  --red: #70161E;
+  --blue: #26547C;
+  --darkgreen: #596F62;
+  --green: #7EA16B;
+  --lightgreen: #C3D898;
+
+  --grey: #cbd4c2;
+  --white: #fffcff;
+  --khaki: #C3B299;
+
+  --backColor: var(--grey);
   --textColor: white;
+
+
 
 }
 
 body{
-  background-color: white;
+  background-color: var(--white);
+  font-family: sans-serif;
 }
 header{
   height: 75px;
   text-align: center;
   font-size: 30pt;
   line-height: 75px;
+  color: var(--darkgreen);
 }
 #grid {
   display: grid;
-  grid-template-columns: repeat(var(--cols), 20%);
-  grid-template-rows: : repeat(var(--rows), 100px);
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: : repeat(5, 100px);
   margin: 50px auto;
   width: 750px;
   height: 100%;
@@ -35,7 +49,7 @@ main{
   width: 100%;
   height: 100px;
   color: #222;
-  background-color: beige;
+  background-color: var(--khaki);
   text-align: center;
   line-height: 100px;
 }
@@ -43,52 +57,61 @@ main{
 #role{
   display: flex;
   flex-direction: row;
-  width: 25%;
-  justify-content: center;
+  width: 750px;
+  justify-content: right;
   margin: auto;
 }
 
 
 
 .red{
-  --textColor: maroon;
-  --backColor: maroon;
+  --textColor: var(--red);
+  --backColor: var(--red);
 }
 
 .blue{
-  --textColor: blue;
-  --backColor: blue;
+  --textColor: var(--blue);
+  --backColor: var(--blue);
 }
 
 .neutral{
-  --backColor: grey;
-  --textColor: black;
+  --backColor: #A3B394;
+  --textColor: var(--white);
 }
 
 .bomb{
   --backColor: #333;
-  --textColor: orange;
+  --textColor: black;
+  --textShadow: 0 0 10px #5A4B35;
 }
 
 .spymaster {
   color: var(--textColor);
+  text-shadow: var(--textShadow);
 }
 
 
 .btn button{
-  background-color: orange;
-  border: 1px solid black;
-  color: white;
+  background-color: var(--darkgreen);
+  border: 2px solid var(--darkgreen);
+  color: var(--white);
   padding: 10px 24px;
   cursor: pointer;
 }
 
-.btn button:not(:last-child){
-  border-right: none;
-}
 
 .btn button:hover{
-  background-color: grey;
+  background-color: var(--grey);
+  color: #222;
+}
+
+.clicked2{
+  background-color: var(--grey) !important;
+  color: #222 !important;
+}
+
+.blank{
+  flex-grow: 100;
 }
 
 .clicked{
