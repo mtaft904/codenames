@@ -1,11 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;500;600&display=swap');
+
 :root{
   --cols: 6;
   --rows: 6;
   --red: #70161E;
   --blue: #26547C;
   --darkgreen: #596F62;
-  --green: #7EA16B;
-  --lightgreen: #C3D898;
 
   --grey: #cbd4c2;
   --white: #fffcff;
@@ -23,21 +23,27 @@ body{
   font-family: sans-serif;
 }
 header{
+  padding-top: 25px;
   height: 75px;
+  margin-bottom: 15px;
   text-align: center;
   font-size: 30pt;
   line-height: 75px;
-  color: var(--darkgreen);
+  color: #64403E;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 500;
+  text-shadow: 0 4px 10px #C8A9A7;
 }
 #grid {
   display: grid;
   grid-template-columns: repeat(5, 20%);
   grid-template-rows: : repeat(5, 100px);
-  margin: 50px auto;
+  margin: 10px auto;
   width: 750px;
   height: 100%;
-  row-gap: 5px;
-  column-gap: 5px;
+  font-size: 18px;
+  padding: 3px;
+
 }
 
 main{
@@ -45,13 +51,25 @@ main{
   padding-bottom: 50px;
 }
 
+#scores{
+  display: flex;
+  flex-direction: row;
+  width: 750px;
+  margin: auto;
+}
+
+#scores h2{
+  margin: 3px;
+  font-size: 14pt;
+}
+
 .item{
-  width: 100%;
   height: 100px;
   color: #222;
   background-color: var(--khaki);
   text-align: center;
   line-height: 100px;
+  border: 3px solid var(--white);
 }
 
 #role{
@@ -77,12 +95,13 @@ main{
 .neutral{
   --backColor: #A3B394;
   --textColor: var(--white);
+  --textShadow: 0 0 3px #332B1E;
 }
 
 .bomb{
   --backColor: #333;
-  --textColor: black;
-  --textShadow: 0 0 10px #5A4B35;
+  --textColor: #333;
+  --textShadow: 0 0 2px #5A4B35;
 }
 
 .spymaster {
@@ -116,5 +135,5 @@ main{
 
 .clicked{
   background-color: var(--backColor);
-  color: white;
+  color: var(--white);
 }
