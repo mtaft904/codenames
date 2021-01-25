@@ -1,8 +1,11 @@
 const grid = document.getElementById("grid");
-
+let blueScore = 9;
+let redScore = 8;
 
 let teamsArray = assignTeams();
 console.log(teamsArray);
+
+const end = document.querySelector("#end");
 
 function makeRows(rows, cols) {
   for (c = 0; c < (rows * cols); c++) {
@@ -13,6 +16,20 @@ function makeRows(rows, cols) {
     cell.classList.add(teamsArray[c]);
     cell.addEventListener('click', ()=> {
       cell.classList.add("clicked");
+      if(cell.classList.contains("blue")){
+        blueScore = blueScore - 1;
+        updateScore();
+      }
+      if(cell.classList.contains("red")){
+        redScore = redScore - 1;
+        updateScore();
+      }
+      if(cell.classList.contains("bomb")){
+        end.innerHTML = "Game Over."
+      }
+      if(blueScore==0 || redScore==0){
+        endGame();
+      }
     });
   };
 };
@@ -20,6 +37,24 @@ function makeRows(rows, cols) {
 makeRows(5, 5);
 
 const items = document.querySelectorAll(".item");
+
+function endGame(){
+  if (blueScore == 0){
+    end.innerHTML = "Blue Wins!";
+  }
+  else if (redScore ==0){
+    end.innerHTML = "Red Wins!";
+  }
+}
+
+const blueScoreText = document.querySelector("#blueScore");
+const redScoreText = document.querySelector("#redScore");
+function updateScore(){
+    blueScoreText.innerHTML = blueScore;
+    redScoreText.innerHTML = redScore;
+}
+
+
 
 function assignTeams(){
   const array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
@@ -70,11 +105,15 @@ spy.addEventListener('click', ()=>{
   }
 });
 
-
+spy.click();
 const newGame = document.getElementById("new-game");
 newGame.addEventListener('click', ()=>{
   teamsArray = assignTeams();
-  console.log(teamsArray);
+  spy.click();
+  blueScore = 9;
+  redScore = 8;
+  updateScore();
+  end.innerHTML = "";
   items.forEach((item, i) => {
     let randomWord = words[Math.floor(Math.random() * words.length)];
     item.textContent = randomWord;
