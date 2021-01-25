@@ -53,18 +53,23 @@ const spy = document.getElementById("spy");
 spymaster.addEventListener('click', ()=>{
   items.forEach((item) => {
       item.classList.add("spymaster");
-      spymaster.style.backgroundColor = "grey";
-      spy.style.backgroundColor = "orange";
   });
+  spymaster.classList.add("clicked2");
+  if (spy.classList.contains("clicked2")){
+    spy.classList.remove("clicked2");
+  }
 });
 
 spy.addEventListener('click', ()=>{
   items.forEach((item) => {
       item.classList.remove("spymaster");
-      spy.style.backgroundColor = "grey";
-      spymaster.style.backgroundColor = "orange";
   });
+  spy.classList.add("clicked2");
+  if (spymaster.classList.contains("clicked2")){
+    spymaster.classList.remove("clicked2");
+  }
 });
+
 
 const newGame = document.getElementById("new-game");
 newGame.addEventListener('click', ()=>{
